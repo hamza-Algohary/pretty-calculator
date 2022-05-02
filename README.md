@@ -4,8 +4,9 @@
 Pretty Calculator is functional and beautiful calculator for Linux, built with Gtk3.
 # Build From Source
 First install the required dependencies
-- libgtkmm-3.0
+- libgtkmm-3.0-dev
 - g++
+
 Then run the following commands:
 ```
 git clone https://github.com/hamza-Algohary/pretty-calculator
