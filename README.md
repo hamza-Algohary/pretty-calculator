@@ -30,3 +30,9 @@ To unistall,
 chmod +x uninstall.sh
 sudo ./uninstall.sh
 ```
+# Screenshots
+
+![screenshot](pretty-calc5.png)
+![screenshot](pretty-calc6.png)
+![screenshot](pretty-calc7.png)
+![screenshot](pretty-calc4.png)
