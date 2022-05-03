@@ -16,9 +16,8 @@ make
 ```
 
 # Download
-Install the above dependencies first, then download and install one of the the following:
-- [pretty-calculator.deb](https://github.com/hamza-Algohary/pretty-calculator/blob/main/pretty-calculator.deb)
-- [pretty-calculator.tar.gz](https://github.com/hamza-Algohary/pretty-calculator/blob/main/pretty-calculator.tar.gz)
+## NOTE: You have to install package `libgtkmm-3.0-dev` before installing packages.
+To download head to [releases](https://github.com/hamza-Algohary/pretty-calculator/releases/tag/v1.0)
 
 Note: To install the .tar.gz archive extract it and inside the extracted folder type the following:
 ```
