@@ -25,7 +25,7 @@ make
 
 # Download
 #### NOTE: You have to install package `libgtkmm-3.0-dev` before installing packages.
-#### You can find binary packages in [releases](https://github.com/hamza-Algohary/pretty-calculator/releases/tag/v1.0)
+#### You can find binary packages in [releases](https://github.com/hamza-Algohary/pretty-calculator/releases)
 
 ### Another Note: To install the .tar.gz archive.
 extract it and inside the extracted folder type the following:
