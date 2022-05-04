@@ -7,6 +7,7 @@
 #include <iostream>
 #include <memory>
 #include <boost/multiprecision/cpp_dec_float.hpp>
+#include <glibmm.h>
 #include "text_editor.h"
 namespace num = boost::multiprecision;
 
@@ -436,7 +437,7 @@ public:
 
     number calculate(std::string formula){
         clear(' ' , formula);
-        //std::cout << "\t\t\t\tformula: " << formula << "\n"; 
+        std::cout << "\t\t\t\tformula: " << formula << "\n"; 
         auto my_to_string = [](number n){std::stringstream ss; ss << n; return ss.str();};
         for(auto var: vars){
             replace_each(formula , var.first , "("+var.second.str()+")");
@@ -504,6 +505,16 @@ public:
         }
         return calc.calculate(formula);
     }
+
+    /*number calculate_utf8(Glib::ustring formula){
+        replace_each_ustring(formula , "\xC3\x97" , '*');
+        replace_each_ustring(formula , "\xC3\xB7" , '/');
+        //std::stringstream ss;
+        //ss << formula;
+        std::string f="";
+        convert_ustring_to_string(formula , f);
+        return calculate(f);//(ss.str());
+    }*/
 
     Calculator(){
         vars["pi"] = M_PI;

@@ -59,6 +59,20 @@ bool compare(string input , string keyword , int index){
     return true;
 }//Tested succefully
 
+bool compare_ustring(Glib::ustring input , Glib::ustring keyword , int index){
+
+    if(input.length()-index < keyword.length()){
+        return false;
+    }
+
+    for(int i=index  ,j=0; j<keyword.length() ; i++ , j++){
+        if(input[i] != keyword[j]){
+            return false;
+        }
+    }
+    return true;
+}//Doesnot work
+
 int search_first(string input , string keyword , int from , int to){
     if(to==-1){
         to=input.length();
@@ -140,6 +154,37 @@ void replace_each(string &input , string to_be_replaced , string replacement){
     input = ss.str();
 }
 
+/*void replace_each_ustring(Glib::ustring &input , Glib::ustring to_be_replaced , char replacement){
+    /*auto indexes = search_all(input , to_be_replaced);
+    std::cout << indexes.size() << std::endl;
+    for(int i=0;i<indexes.size();i++){
+        std::cout << indexes[i] << " " << indexes[i]+to_be_replaced.length() << "\n";
+        cut(input , indexes[i] , indexes[i]+to_be_replaced.length()-1, replacement);
+    }
+    stringstream ss;
+    for (auto c : input.){
+        //input.erase(c);
+        //std::cout << (char)c << std::endl;
+        if (c == to_be_replaced[0]){
+            input.erase(c);
+            input.insert(c, replacement);
+        }/*else{
+            ss << (char)c;
+        }
+    }
+
+    /*for (int i = 0; i < input.length(); i++){
+        if ((int)input[i] == (int)to_be_replaced[0]){
+            std::string tmp = "";
+            convert_ustring_to_string(replacement , tmp);
+            ss << tmp;
+            i += to_be_replaced.length()-1;
+        }else{
+            ss << (char)input[i];
+        }
+    }
+    input = ss.str();
+}*/
 
 string copy_part_of_string(string str, int down, int up){
     stringstream ss;
@@ -186,6 +231,12 @@ void insert_at(string &input , vector<int> indexes , string to_be_inserted){
     input = ss.str();
 }
 
+void convert_ustring_to_string(Glib::ustring u , std::string &s){
+    s = "";
+    for (auto c : u){
+        s.append(char_to_string((char)c));
+    }
+}
 
 void insert_after_each(string &input , string to_be_inserted , string after){
     auto indexes = search_all(input , after);

@@ -3,11 +3,11 @@
 #include <fstream>
 #include <ctime>
 #include <map>
-
 #include <iomanip>
 //#include <wchar.h>
 #include "calculator.h"
 #include "gtkmc.h"
+#include "GPL.h"
 
 using namespace Gtk;
 using namespace my;
@@ -261,7 +261,13 @@ public:
 };*/
 
 int main(int argc, char *argv[])
-{
+{   
+    /*Glib::ustring u = "hello\xC3\x97world";
+    std::cout << u.c_str() << std::endl;
+    //replace_each_ustring(u , "\xC3\x97" , '*');
+    std::cout << u << std::endl;
+    std::string s = u;
+    std::cout << s << std::endl;*/
     auto app = Gtk::Application::create();
 
     Glib::ustring str = "hello";
@@ -345,10 +351,12 @@ int main(int argc, char *argv[])
     });
     
     auto about_dialog = my::make_about_dialog("Slick Calculator" , "org.gnome.Calculator" , {"Hamza Algohary"} , License::LICENSE_GPL_2_0);
-    std::stringstream ss;
-    std::ifstream fin("GPL_V2.txt");
-    ss << fin.rdbuf();
-    about_dialog.set_license(ss.str());
+    //std::stringstream ss;
+    //std::ifstream fin("GPL_V2.txt");
+    //ss << fin.rdbuf();
+    about_dialog.set_license(GPL_LICENSE);
+    about_dialog.set_version("Version 1.1");
+    about_dialog.set_comments("A beatifual and simple yet functional Calculator.");
     about.set_label("About");
     about.signal_clicked().connect([&](){
         about_dialog.run();
@@ -390,9 +398,9 @@ int main(int argc, char *argv[])
 
     class key : public Button{
         public:
-        std::string label = "";
-        std::string alt_label = "";
-        std::string style_class , style_class_alt;
+        Glib::ustring label = "";
+        Glib::ustring alt_label = "";
+        Glib::ustring style_class , style_class_alt;
         //const HistoryManager& m_history = history;
         key(std::string label , std::string alt_label="" , std::string style_class = "large-text" , std::string style_class_alt = "small-text"):label(label) , alt_label(alt_label){
             set_label(label);
@@ -442,11 +450,11 @@ int main(int argc, char *argv[])
     };
     
     //}
-    auto power = key("^" , "e" , "large-text" , "italic");
+    auto power = key("^" , "e");
     auto plus = key("+" , "log");
     auto minus = key("-" , "ln");
-    auto times = key("*" , "root");
-    auto divide = key("/" , "pi" , "large-text" , "italic");
+    auto times = key("\xC3\x97" , "root");
+    auto divide = key("\xC3\xB7" , "pi");
     auto dot = key("." , "sqrt");
     auto one = key("1" , "sin") , two = key("2" , "cos") , three = key("3" , "tan") , four = key("4" , "sec") , five = key("5" , "csc") , six = key("6" , "cot") ,
          seven = key("7" , "asin") , eight = key("8" , "acos") , nine = key("9" , "atan") , zero = key("0" , "abs");
@@ -456,19 +464,34 @@ int main(int argc, char *argv[])
     //auto abs_f = key("abs") , sqrt_f = key("sqrt") , log_f = key("log") , ln_f = key("ln") , root_f = key("root");
 
     //Button numbers_key("123");
-
+    //times.set_label()
     
     bool erase = false;
     static int precision = 15;
-
+    auto adapt_utf8 = [](Glib::ustring u){
+        std::string str = "";
+        for (auto c : u){
+            //input.erase(c);
+            //std::cout << (char)c << std::endl;
+            Glib::ustring m("\xC3\x97") , d("\xC3\xB7");
+            if (c == m[0]){
+                str.append("*");
+            }else if (c == d[0]){
+                str.append("/");
+            }else{
+                str.append(char_to_string((char)c));
+            }
+        }
+        return str;
+    };
     auto equal = TButton("=" , [&](){
         try{
-            std::string formula = buffer->get_text();
+            Glib::ustring formula = buffer->get_text();
 
             if (formula != ""){
                 std::string result_string;
                 std::stringstream result_stream;
-                number result = calculator.calculate(formula);
+                number result = calculator.calculate(adapt_utf8(formula));
                 if(number_mode == SCIENTIFIC){
                     result_stream << std::scientific << result;
                     result_string = result_stream.str();
@@ -477,8 +500,8 @@ int main(int argc, char *argv[])
                     result = my::round_to_nearest(result , precision);
                     result_string = result.str();
                 }
-                replace_each(result_string , "e+" , "^");
-                replace_each(result_string , "e-" , "^-");
+                replace_each(result_string , "e+" , "*10^");
+                replace_each(result_string , "e-" , "*10^-");
                 //result << /*std::fixed <<*/ calculator.calculate(formula);
                 //std::cout << result.str();
                 buffer->set_text(result_string);
@@ -700,6 +723,7 @@ int main(int argc, char *argv[])
         ss << "box.vertical , box.horizontal{border-radius:30px 30px 30px 30px;}";
         ss << "window > *:not(headerbar) {border-radius: 15px 15px 15px 15px;}";
         ss << ".simple-roundness{border-radius:10px 10px 10px 10px;}";
+        ss << "window.maximized , window.maximized headerbar{border-radius: 0 0 0 0;}";
         //ss << "window , box{border-radius:10px;}"; 
         std::cout << ss.str() << "\n";
         try{
