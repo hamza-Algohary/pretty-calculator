@@ -2,6 +2,14 @@
 ![screenshot](pretty-calc2.png)
 
 Pretty Calculator is functional and beautiful calculator for Linux, built with Gtk3.
+# Features
+- Operators (+-*/^)
+- Functions (trigonometric, inverse trigonometric, logarithmic, and more)
+- History (use up/down arrow keys to access history)
+- Press Esc button to clear
+
+# Planned Features
+- Financial mode
 # Build From Source
 First install the required dependencies
 - libgtkmm-3.0-dev
@@ -36,3 +44,4 @@ sudo ./uninstall.sh
 ![screenshot](pretty-calc6.png)
 ![screenshot](pretty-calc7.png)
 ![screenshot](pretty-calc4.png)
+
