@@ -18,7 +18,7 @@ First install the required dependencies
 Then run the following commands:
 ```
 git clone https://github.com/hamza-Algohary/pretty-calculator
-cd pretty-calculator/src
+cd pretty-calculator
 make
 ./pretty-calculator
 ```
