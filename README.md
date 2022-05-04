@@ -1,7 +1,7 @@
 # Pretty Calculator
 ![screenshot](pretty-calc2.png)
 
-Pretty Calculator is functional and beautiful calculator for Linux, built with Gtk3.
+Pretty Calculator is a functional and beautiful calculator for Linux, built with Gtk3.
 # Features
 - Operators (+-*/^)
 - Functions (trigonometric, inverse trigonometric, logarithmic, and more)
