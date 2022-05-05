@@ -1,4 +1,4 @@
-CXXFLAGS := $(shell pkg-config --libs --cflags gtkmm-3.0) -O2 $(CXXFLAGS)
+CXXFLAGS := -Wall -Wextra $(shell pkg-config --libs --cflags gtkmm-3.0) -O2 $(CXXFLAGS)
 
 sources = $(wildcard src/*.cpp)
 headers = $(wildcard src/*.h)
