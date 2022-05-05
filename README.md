@@ -13,6 +13,7 @@ Pretty Calculator is a functional and beautiful calculator for Linux, built with
 # Build From Source
 First install the required dependencies
 - libgtkmm-3.0-dev
+- boost-dev
 - g++
 
 Then run the following commands:
