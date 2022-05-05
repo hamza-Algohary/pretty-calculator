@@ -59,7 +59,7 @@ bool compare(string input , string keyword , int index){
     return true;
 }//Tested succefully
 
-bool compare_ustring(Glib::ustring input , Glib::ustring keyword , int index){
+/*bool compare_ustring(Glib::ustring input , Glib::ustring keyword , int index){
 
     if(input.length()-index < keyword.length()){
         return false;
@@ -71,7 +71,7 @@ bool compare_ustring(Glib::ustring input , Glib::ustring keyword , int index){
         }
     }
     return true;
-}//Doesnot work
+}//Doesnot work*/
 
 int search_first(string input , string keyword , int from , int to){
     if(to==-1){
@@ -231,12 +231,12 @@ void insert_at(string &input , vector<int> indexes , string to_be_inserted){
     input = ss.str();
 }
 
-void convert_ustring_to_string(Glib::ustring u , std::string &s){
+/*void convert_ustring_to_string(Glib::ustring u , std::string &s){
     s = "";
     for (auto c : u){
         s.append(char_to_string((char)c));
     }
-}
+}*/
 
 void insert_after_each(string &input , string to_be_inserted , string after){
     auto indexes = search_all(input , after);
