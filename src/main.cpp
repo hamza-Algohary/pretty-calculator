@@ -350,7 +350,7 @@ int main(int argc, char *argv[])
         number_mode = active_mode.second;
     });
     
-    auto about_dialog = my::make_about_dialog("Slick Calculator" , "org.gnome.Calculator" , {"Hamza Algohary"} , License::LICENSE_GPL_2_0);
+    auto about_dialog = my::make_about_dialog("Pretty Calculator" , "org.gnome.Calculator" , {"Hamza Algohary"} , License::LICENSE_GPL_2_0);
     //std::stringstream ss;
     //std::ifstream fin("GPL_V2.txt");
     //ss << fin.rdbuf();
@@ -364,7 +364,7 @@ int main(int argc, char *argv[])
     });
     Gtk::HeaderBar about_headerbar;
     about_headerbar.set_show_close_button(true);
-    about_headerbar.set_title("About Slick Calculator");
+    about_headerbar.set_title("About Pretty Calculator");
     about_dialog.set_titlebar(about_headerbar);
     about_dialog.show_all_children();
 
