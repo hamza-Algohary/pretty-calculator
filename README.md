@@ -1,5 +1,5 @@
 # Pretty Calculator
-![screenshot](pretty-calc-new2.png)
+![screenshot](screenshots/pretty-calc-new2.png)
 
 Pretty Calculator is a functional and beautiful calculator for Linux, built with Gtk3.
 # Features
@@ -18,7 +18,7 @@ First install the required dependencies
 Then run the following commands:
 ```
 git clone https://github.com/hamza-Algohary/pretty-calculator
-cd pretty-calculator/src
+cd pretty-calculator
 make
 ./pretty-calculator
 ```
@@ -40,9 +40,9 @@ sudo ./uninstall.sh
 ```
 # Screenshots
 
-![screenshot](pretty-calc-new5.png)
-![screenshot](pretty-calc-new6.png)
-![screenshot](pretty-calc-new7.png)
+![screenshot](screenshots/pretty-calc-new5.png)
+![screenshot](screenshots/pretty-calc-new6.png)
+![screenshot](screenshots/pretty-calc-new7.png)
 ### Old Screenshot
-![screenshot](pretty-calc4.png)
+![screenshot](screenshots/pretty-calc4.png)
 
