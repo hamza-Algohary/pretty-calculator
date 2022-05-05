@@ -355,7 +355,7 @@ int main(int argc, char *argv[])
     //std::ifstream fin("GPL_V2.txt");
     //ss << fin.rdbuf();
     about_dialog.set_license(GPL_LICENSE);
-    about_dialog.set_version("Version 1.1");
+    about_dialog.set_version("Version 1.3");
     about_dialog.set_comments("A beautiful and simple yet functional Calculator.");
     about.set_label("About");
     about.signal_clicked().connect([&](){
