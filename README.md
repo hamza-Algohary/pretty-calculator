@@ -13,19 +13,19 @@ Pretty Calculator is a functional and beautiful calculator for Linux, built with
 # Build From Source
 First install the required dependencies
 - libgtkmm-3.0-dev
-- boost-dev
+- libboost-dev
 - g++
 
 Then run the following commands:
 ```
 git clone https://github.com/hamza-Algohary/pretty-calculator
-cd pretty-calculator/src
-make
-./pretty-calculator
+make build      # Compile the source code
+make build-pkgs # Build deb package and tarball package for easy installation.
 ```
+After running make build-pkgs you will find the generated packages in packages/ folder
 
 # Download
-#### NOTE: You have to install package `libgtkmm-3.0-dev` before installing packages.
+#### NOTE: You have to install package `libgtkmm-3.0-dev` and `libboost-dev`before installing packages.(Package names differ according to your package manager)
 #### You can find binary packages in [releases](https://github.com/hamza-Algohary/pretty-calculator/releases)
 
 ### Another Note: To install the .tar.gz archive.
