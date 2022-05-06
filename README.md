@@ -28,8 +28,8 @@ After running make build-pkgs you will find the generated packages in packages/ 
 
 #### You can find binary packages in [releases](https://github.com/hamza-Algohary/pretty-calculator/releases)
 
-### Another Note: To install the .tar.gz archive.
-#### NOTE: You have to install package `libgtkmm-3.0-dev` and `libboost-dev`before installing the tar.gz package.(Package names differ according to your package manager)
+### Note: To install the .tar.gz archive.
+#### First you have to install package `libgtkmm-3.0-dev` and `libboost-dev`before installing the tar.gz package.(Package names differ according to your package manager)
 extract it and inside the extracted folder type the following:
 ```
 chmod +x install.sh
