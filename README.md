@@ -44,7 +44,5 @@ sudo ./uninstall.sh
 
 ![screenshot](pretty-calc-new5.png)
 ![screenshot](pretty-calc-new6.png)
-![screenshot](pretty-calc-new7.png)
-### Old Screenshot
 ![screenshot](pretty-calc4.png)
 
