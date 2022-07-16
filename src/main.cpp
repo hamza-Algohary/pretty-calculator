@@ -454,8 +454,8 @@ int main(int argc, char *argv[])
     auto plus = key("+" , "log");
     auto minus = key("-" , "ln");
     auto times = key("\xC3\x97" , "root");
-    auto divide = key("\xC3\xB7" , "pi");
-    auto dot = key("." , "sqrt");
+    auto divide = key("\xC3\xB7" , "\xCF\x80");
+    auto dot = key("." , "\xE2\x88\x9A");
     auto one = key("1" , "sin") , two = key("2" , "cos") , three = key("3" , "tan") , four = key("4" , "sec") , five = key("5" , "csc") , six = key("6" , "cot") ,
          seven = key("7" , "asin") , eight = key("8" , "acos") , nine = key("9" , "atan") , zero = key("0" , "abs");
 
@@ -473,11 +473,15 @@ int main(int argc, char *argv[])
         for (auto c : u){
             //input.erase(c);
             //std::cout << (char)c << std::endl;
-            Glib::ustring m("\xC3\x97") , d("\xC3\xB7");
+            Glib::ustring m("\xC3\x97") , d("\xC3\xB7") , s("\xE2\x88\x9A") , p("\xCF\x80");
             if (c == m[0]){
                 str.append("*");
             }else if (c == d[0]){
                 str.append("/");
+            }else if(c == s[0]){
+                str.append("sqrt");
+            }else if(c == p[0]){
+               str.append("pi"); 
             }else{
                 str.append(char_to_string((char)c));
             }

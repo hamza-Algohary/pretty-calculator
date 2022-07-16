@@ -109,7 +109,7 @@ private:
         add_function( math_function("ln" , 1 , [](std::vector<number> numbers){return num::log(numbers.begin()[0]);} , logarithmic_interval));
         add_function( math_function("pow" , 2 , [](std::vector<number> numbers){return num::pow(numbers.begin()[0] , numbers.begin()[1]);}));
         add_function( math_function("root" , 2 , [](std::vector<number> numbers){return my::root(numbers.begin()[0] , numbers.begin()[1]);}));
-        add_function(math_function("sqrt" , 1 , [](std::vector<number> numbers){return num::sqrt(numbers.begin()[0]);}));
+        add_function(math_function("sqrt" , 1 , [](std::vector<number> numbers){return num::sqrt(numbers.begin()[0]);} , logarithmic_interval));
 
         add_function( math_function("sin" , 1 , [](std::vector<number> numbers){return num::sin(numbers.begin()[0]*ANGLE_SYSTEM);}));
         add_function( math_function("cos" , 1 , [](std::vector<number> numbers){return num::cos(numbers.begin()[0]*ANGLE_SYSTEM);}));
