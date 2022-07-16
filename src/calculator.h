@@ -547,7 +547,7 @@ public:
 
         arcsin_interval.error_message = "arcsin() domain is [-1 , 1]";
         arccos_interval.error_message = "arccos() domain is [-1 , 1]";
-        logarithmic_interval.error_message = "Logarithms don't accept negatives.";
+        logarithmic_interval.error_message = "Logarithms and sqrt don't accept negatives.";
         tan_interval.error_message = "tan() doesn't accept 90 or its multipeles.";
         /*functions.add_function(math_function("abs" , 1 , [](std::vector<number> numbers){return std::abs(numbers.begin()[0]);}));
 
